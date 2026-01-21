@@ -1,7 +1,7 @@
 Assignment 1 - Hello World: GitHub and d3  
 Asha Buchanan
 
-Link: https://github.com/ajb-18/a1-ghd3/index.html 
+Link: https://ajb-18.github.io/a1-ghd3/
 
 Screenshots: ![Screenshot](screenshot1.png)
 
