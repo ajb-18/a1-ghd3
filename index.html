@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<div id="container"></div>
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script type="module">
 
-<script>
-  console.log(d3); // test if d3 is loaded
-  // Add an SVG
-  // Add Rectangles
-  // Add Circles
-  // Add Lines
-  // Add Polygons
-</script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 1</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+
+<body>
+  <h1>Assignment 1</h1>
+
+  <svg id="mysvg" width="500" height="500"></svg>
+
+  <script>
+    console.log(d3); // test if d3 is loaded
+    // Add an SVG
+    const svg = d3.select("#mysvg");
+    
+    //adding a color palett 
+    const color=d3.schemePastel1;
+
+    // Add Rectangles
+    svg.append("rect")
+      .attr("x", 10)
+      .attr("y", 10)
+      .attr("width", 100)
+      .attr("height", 50)
+      .attr("fill", color[0]);
+
+    // Add Circles
+    svg.append("circle")
+      .attr("cx", 200)
+      .attr("cy", 100)
+      .attr("r", 50)
+      .attr("fill", color[1]);
+
+    // Add Lines
+    svg.append("line")
+      .attr("x1", 100)
+      .attr("y1", 100)
+      .attr("x2", 200)
+      .attr("y2", 200)
+      .attr("stroke", color[2])
+      .attr("stroke-width", 5);
+
+    // Add Polygons
+    svg.append("polygon")
+      .attr("points", "300,10 350,100 250,100")
+      .attr("fill", color[3]);
+
+    //Technical development -> change colour on hover
+    svg.selectAll("rect, circle, line, polygon")
+      .on("mouseover", function() {
+        d3.select(this).attr("opacity", "0.5");
+      })
+      .on("mouseout", function() {
+        d3.select(this).attr("opacity", "1");
+      });
+  </script>
